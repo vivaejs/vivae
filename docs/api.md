@@ -175,7 +175,7 @@ vobj.on | once | off(EVENT, LISTENER);
 ## Server Listener - `[server]`.listen
 
 ```javascript
-[server].use(PORT, CALLBACK);
+[server].listen(PORT, CALLBACK);
 ```
 
 - `PORT`: The port number the server will listen to.
