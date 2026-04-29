@@ -18,9 +18,9 @@ And guess what? It's packaged smaller than 20kb!
 
 ## Performance
 
-Vivae uses less memory and is more stable than Express or Koa.
+Vivae has a lower memory usage in basic server benchmarks.
 
-- Vivae: ~31.55 MB RSS
+- Vivae v1.1.0: ~31.55 MB RSS
 - Express v5.1.0: ~43.45 MB
 - Koa v3.0.0: ~43.71 MB
 
