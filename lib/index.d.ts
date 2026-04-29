@@ -60,9 +60,7 @@ interface VivaeObject {
   off<E extends keyof Event>(event: E, listener: Event[E]): this;
 }
 
-type Middleware =
-  | ((vobj: VivaeObject) => void)
-  | ((error: any, vobj: VivaeObject) => void);
+type Middleware = ((vobj: VivaeObject) => void);
 
 interface VivaeConfig {
   debug?: {
@@ -81,6 +79,6 @@ interface VivaeServer {
   listen(port: number, callback?: () => void): void;
 }
 
-declare function vivae(config: VivaeConfig): VivaeServer;
+declare function vivae(config?: VivaeConfig): VivaeServer;
 
 export = vivae;
