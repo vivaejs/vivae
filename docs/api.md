@@ -9,7 +9,7 @@ In this documentation, `[server]` will refer to your server instance.
 ```javascript
 import vivae from "vivae";
 
-const app = vivae(); // [server]
+const app = vivae(config); // [server]
 ```
 
 You can modify how your server behaves by passing an object when the instance is created.
@@ -191,7 +191,12 @@ import { createPlugin } from "vivae/plugins";
 createPlugin(FUNCTION);
 ```
 
-- `FUNCTION`: Add any argument and return middleware. It's very similar to `[server].use()` except you can use it almost anywhere or create your own package for others to use.
+- `FUNCTION`: `((...args) => (server) => { path?, method?, middleware })` Add any arguments and return an object that defines the route.
+  - `path` (optional)
+  - `method` (optional)
+  - `middleware` (required)
+
+
 
 ### Example
 
@@ -215,9 +220,12 @@ export default myPlugin;
 ## Static Serving - serve()
 
 ```javascript
+import vivae from "vivae";
 import { serve } from "vivae/plugins";
 
-serve(OPTIONS);
+const app = vivae();
+
+app.use(serve(OPTIONS));
 ```
 
 - `OPTIONS` (optional): You can pass an object to change how static serving behaves.
