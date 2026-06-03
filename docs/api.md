@@ -63,10 +63,10 @@ The route handler defines how your HTTP server handles each path and it's assosi
 
 ## Vivae Object
 
-The Vivae Object (`vobj`) is a unified version of Node.js's `req` and `res` only available when writing middleware. The `vobj` object can be accessed like this:
+The Vivae Object (`v`) is a unified version of Node.js's `req` and `res` only available when writing middleware. The `v` object can be accessed like this:
 
 ```javascript
-[server].use((vobj) => {
+[server].use((v) => {
   // vobj can be used here
 });
 ```
@@ -156,22 +156,6 @@ Example:
 vobj.respond(200, { "Content-Type": "application/json" });
 ```
 
-### Events `.on()`, `.once()`, `.off()`
-
-All events are structured the same. They just work differently.
-
-```javascript
-vobj.on | once | off(EVENT, LISTENER);
-```
-
-- `EVENT`: The event name to listen for.
-  - `data`: `(chunk: Buffer | string)` When a new chunk of data is received.
-  - `end`: `()` When the data stream ends.
-  - `error`: `(error: Error)` An error during a request.
-  - `close`: `()` Request stream closes unexpectedly.
-  - `aborted`: `()` Request aborted by client.
-- `LISTENER`: A function that is called when the event occurs. The argument that is passed depends on the event type. They are listed above.
-
 ## Server Listener - `[server]`.listen
 
 ```javascript
@@ -208,8 +192,8 @@ const myPlugin = createPlugin((message) => {
   return (server) => ({
     path: "/api/user/:userId",
     method: "POST",
-    middleware: function (vobj) {
-      vobj.send({ message, userId: vobj.params.userId });
+    middleware: function (v) {
+      v.send({ message, userId: v.params.userId });
     },
   });
 });
