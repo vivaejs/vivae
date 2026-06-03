@@ -33,7 +33,7 @@ const app = vivae();
 const port = 3000;
 
 app.use("/", ["GET", "POST"], (v) => {
-  v.send("Hello World!");
+  return v.send("Hello World!");
 });
 
 app.listen(port, () => {
