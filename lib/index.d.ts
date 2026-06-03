@@ -68,6 +68,7 @@ interface VivaeConfig {
     warnings?: boolean;
   };
   allowQueries?: boolean;
+  runtime?: "node" | "serverless";
 }
 
 interface VivaeServer {
