@@ -28,8 +28,8 @@ import vivae from "vivae";
 
 const app = vivae();
 
-app.use((vobj) => {
-  vobj.send("Hello World!");
+app.use((v) => {
+  v.send("Hello World!");
 });
 
 app.listen(3000);
