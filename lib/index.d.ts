@@ -48,7 +48,7 @@ interface VivaeObject {
   }): this;
 }
 
-type Middleware = (vobj: VivaeObject) => void;
+type Middleware = (v: VivaeObject) => void;
 
 interface VivaeConfig {
   debug?: {
