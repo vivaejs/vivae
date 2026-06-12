@@ -40,8 +40,8 @@ app.listen(port, () => {
 });
 // Edge
 export default {
-  fetch: app.fetch
-}
+  fetch: app.fetch,
+};
 ```
 
 If you're using CommonJS, simply use `require` instead of `import`:
